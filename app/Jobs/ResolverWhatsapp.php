@@ -33,12 +33,14 @@ class ResolverWhatsapp implements ShouldQueue
     public function handle()
     {
         if (array_key_exists('messages', $this->data)) {
-            //$name = $this->data['contacts'][0]['profile']['name'];
+            $name = $this->data['contacts'][0]['profile']['name'];
             $wa_id = $this->data['contacts'][0]['wa_id'];
             $number = Client::number('6334ea09-d3fe-4689-8acb-684eb0d0ec78', true);
-            $message = $number->sendText('+' . $wa_id, 'Hola JORGE');
+            $message = $number->sendText('+' . $wa_id, 'Un Gusto saludarte '.$name);
 
             logger($message->body());
+        } else {
+
         }
     }
 }

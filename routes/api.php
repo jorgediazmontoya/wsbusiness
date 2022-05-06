@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/webhook', function (Request $request) {
     ResolverWhatsapp::dispatch($request->all());
+    //logger($request->all());
     return response()->noContent();
 });
